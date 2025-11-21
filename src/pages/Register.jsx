@@ -1,0 +1,41 @@
+import React from "react";
+import { Link } from "react-router";
+
+const Register = () => {
+  return (
+    <div className="hero bg-base-200 min-h-screen">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="card bg-base-100 w-full shadow-2xl">
+          <div className="card-body w-86">
+            <h2 className="text-center text-2xl font-semibold">Register</h2>
+            <fieldset className="fieldset">
+              <label className="label">Email</label>
+              <input type="email" className="input" placeholder="Email" />
+              <label className="label">Name</label>
+              <input type="text" className="input" placeholder="Your name" />
+              <label className="label">PhotoUrl</label>
+              <input type="text" className="input" placeholder="Enter your photurl" />
+              <label className="label">Password</label>
+              <input type="password" className="input" placeholder="Password" />
+              <div>
+                <a className="link link-hover">Forgot password?</a>
+              </div>
+              <div>
+                <span>Already have an account? </span>
+                <Link
+                  to={"/login"}
+                  className="text-blue-400 font-medium hover:underline"
+                >
+                  login
+                </Link>
+              </div>
+              <button className="btn btn-neutral mt-4">Register</button>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Register;
