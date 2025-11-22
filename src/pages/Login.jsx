@@ -6,8 +6,8 @@ const Login = () => {
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <div className="card-body">
+        <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
+          <div className="card-body w-86">
             <h2 className="text-center text-2xl font-semibold">Login</h2>
             <fieldset className="fieldset">
               <label className="label">Email</label>
