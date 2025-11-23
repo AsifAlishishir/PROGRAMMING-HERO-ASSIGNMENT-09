@@ -3,9 +3,11 @@ import { Link } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
-  const { registerWithEmailPassword, setUser, user } = useContext(AuthContext);
+  const { registerWithEmailPassword, handlgGoogleSignIn, setUser, user } =
+    useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,6 +40,17 @@ const Register = () => {
   };
 
   console.log(user);
+
+  const googleSignup = () => {
+    handlgGoogleSignIn()
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -85,6 +98,9 @@ const Register = () => {
                   login
                 </Link>
               </div>
+              <button onClick={googleSignup} className="btn">
+                <FcGoogle /> <span>Sign up with Google</span>
+              </button>
               <button className="btn btn-neutral mt-4">Register</button>
             </form>
           </div>

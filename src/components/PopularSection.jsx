@@ -10,7 +10,7 @@ const PopularSection = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(services);
+  // console.log(services);
   return (
     <div className="mt-20 px-[150px]">
       <div>
