@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 const PopularSection = () => {
   const [services, setServices] = useState([]);
@@ -20,7 +21,7 @@ const PopularSection = () => {
       </div>
 
       <div className="grid grid-cols-3 gap-10 mt-12">
-        {services.slice(0,6).map((service) => (
+        {services.slice(0, 6).map((service) => (
           <div key={service?.serviceId} className="card bg-base-100 shadow-sm">
             <figure>
               <img
@@ -38,7 +39,9 @@ const PopularSection = () => {
                 <p>Rating: {service?.rating}</p>
               </div>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">View Details</button>
+                <Link to={`/details/${service?.serviceId}`}>
+                  <button className="btn btn-primary">View Details</button>
+                </Link>
               </div>
             </div>
           </div>
