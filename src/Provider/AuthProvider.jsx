@@ -45,6 +45,7 @@ const AuthProvider = ({ children }) => {
     handlgGoogleSignIn,
     setUser,
     user,
+    loading,
   };
   return <AuthContext value={authData}>{children}</AuthContext>;
 };

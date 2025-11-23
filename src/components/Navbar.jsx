@@ -72,7 +72,7 @@ const Navbar = () => {
             <Link to={"/services"}>Services</Link>
           </li>
           <li>
-            <Link>My Profile</Link>
+            <Link to={'/profile'}>My Profile</Link>
           </li>
         </ul>
       </div>
