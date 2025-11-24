@@ -13,14 +13,14 @@ const PopularSection = () => {
 
   // console.log(services);
   return (
-    <div className="mt-10 sm:mt-20 px-6 sm:px-13 lg:px-[100px]">
+    <div className="mt-10 sm:mt-20 px-6 sm:px-9 xl:px-[100px]">
       <div>
-        <h3 className="font-bold text-[20px] sm:text-3xl text-center">
+        <h3 className="font-bold text-[20px] sm:text-3xl text-center text-purple-500">
           Popular Winter Care Services
         </h3>
       </div>
 
-      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-10 mt-12 mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-10 mt-12 mx-auto">
         {services.slice(0, 6).map((service) => (
           <div key={service?.serviceId} className="card bg-base-100 shadow-sm transition duration-200 ease-in-out hover:scale-[1.05]">
             <figure>
