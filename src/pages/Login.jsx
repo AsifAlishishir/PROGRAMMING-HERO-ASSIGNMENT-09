@@ -21,7 +21,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        navigate(location.state ? location.state: '/');
+        navigate(location.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error);
@@ -33,7 +33,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        navigate(location.state ? location.state: '/');
+        navigate(location.state ? location.state : "/");
       })
       .catch((err) => {
         console.log(err);
@@ -41,15 +41,14 @@ const Login = () => {
   };
 
   const handleForget = () => {
-    navigate(`/forget/${email}`)
-    
+    navigate(`/forget/${email}`);
   };
 
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
-          <div className="card-body w-86">
+          <div className="card-body w-96">
             <h2 className="text-center text-2xl font-semibold">Login</h2>
             <form onSubmit={handleSubmit} className="fieldset">
               <label className="label">Email</label>

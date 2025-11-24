@@ -20,8 +20,8 @@ const ServiceDetails = () => {
   const findResult = services.find((service) => service.serviceId == id);
   console.log(findResult);
 
-  if(loading){
-    return <p>Loading.......</p>
+  if (loading) {
+    return <p>Loading.......</p>;
   }
 
   return (

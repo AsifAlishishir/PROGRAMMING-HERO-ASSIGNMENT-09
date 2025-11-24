@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase.config";
@@ -8,6 +8,9 @@ import { FcGoogle } from "react-icons/fc";
 const Register = () => {
   const { registerWithEmailPassword, handlgGoogleSignIn, setUser, user } =
     useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +46,7 @@ const Register = () => {
           .then(() => {
             // console.log(user);
             setUser(user);
+            navigate(location.state ? location.state : "/");
           })
           .catch((error) => {
             console.log(error);
@@ -54,13 +58,14 @@ const Register = () => {
       });
   };
 
-  console.log(user);
+  // console.log(user);
 
   const googleSignup = () => {
     handlgGoogleSignIn()
       .then((result) => {
         const user = result.user;
         setUser(user);
+        navigate(location.state ? location.state : "/");
       })
       .catch((err) => {
         console.log(err);
@@ -70,7 +75,7 @@ const Register = () => {
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card bg-base-100 w-full shadow-2xl">
-          <div className="card-body w-86">
+          <div className="card-body w-96">
             <h2 className="text-center text-2xl font-semibold">Register</h2>
             <form onSubmit={handleSubmit} className="fieldset">
               <label className="label">Email</label>
@@ -101,10 +106,8 @@ const Register = () => {
                 className="input"
                 placeholder="Password"
               />
-              <div>
-                <a className="link link-hover">Forgot password?</a>
-              </div>
-              <div>
+              
+              <div className="my-3">
                 <span>Already have an account? </span>
                 <Link
                   to={"/login"}
@@ -113,7 +116,7 @@ const Register = () => {
                   login
                 </Link>
               </div>
-              <button onClick={googleSignup} className="btn">
+              <button type="button" onClick={googleSignup} className="btn">
                 <FcGoogle /> <span>Sign up with Google</span>
               </button>
               <button className="btn btn-neutral mt-4">Register</button>

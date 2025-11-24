@@ -32,15 +32,15 @@ const winterTips = [
 ];
 const WinterCareTips = () => {
   return (
-    <div className="my-20 px-[180px]">
+    <div className="my-20 px-[150px]">
       <h2 className="text-3xl font-bold text-center my-8">
         Winter Care Tips for Pets
       </h2>
-      <div className="grid grid-cols-4 gap-6 mx-auto ">
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-10 mx-auto ">
         {winterTips.map((tip) => (
           <div
             key={tip.id}
-            className="card bg-base-100 shadow-md border-gray-300 border p-6"
+            className="card bg-base-100 shadow-md transition duration-200 ease-in-out hover:scale-[1.05] border-gray-300 border p-6"
           >
             <p className="mb-3 text-2xl">{tip.icon}</p>
 

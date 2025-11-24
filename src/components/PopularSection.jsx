@@ -13,24 +13,24 @@ const PopularSection = () => {
 
   // console.log(services);
   return (
-    <div className="mt-20 px-[150px]">
+    <div className="mt-10 sm:mt-20 px-6 sm:px-13 lg:px-[100px]">
       <div>
-        <h3 className="font-bold text-3xl text-center">
+        <h3 className="font-bold text-[20px] sm:text-3xl text-center">
           Popular Winter Care Services
         </h3>
       </div>
 
-      <div className="grid grid-cols-3 gap-10 mt-12">
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-10 mt-12 mx-auto">
         {services.slice(0, 6).map((service) => (
-          <div key={service?.serviceId} className="card bg-base-100 shadow-sm">
+          <div key={service?.serviceId} className="card bg-base-100 shadow-sm transition duration-200 ease-in-out hover:scale-[1.05]">
             <figure>
               <img
-                className="w-full h-[300px] object-cover"
+                className="w-full h-52 sm:h-[300px] object-cover"
                 src={service?.image}
                 alt="Shoes"
               />
             </figure>
-            <div className="px-10 py-5 space-y-5">
+            <div className="px-4 sm:px-7 py-5 space-y-3 md:space-y-5">
               <h2 className="card-title font-semibold text-[20px]">
                 {service?.serviceName}
               </h2>

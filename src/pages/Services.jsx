@@ -19,7 +19,7 @@ const Services = () => {
 
       <div className="grid grid-cols-3 gap-10 mt-12">
         {services.map((service) => (
-          <div key={service?.serviceId} className="card bg-base-100 shadow-sm">
+          <div key={service?.serviceId} className="card bg-base-100 shadow-sm transition duration-200 ease-in-out hover:scale-[1.05]">
             <figure>
               <img
                 className="w-full h-[300px] object-cover"

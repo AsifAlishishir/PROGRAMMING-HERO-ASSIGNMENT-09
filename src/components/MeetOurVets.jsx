@@ -29,19 +29,19 @@ const vets = [
 
 const MeetOurVets = () => {
   return (
-    <div className="mt-20 px-[150px]">
-      <h2 className="text-3xl font-bold text-center my-8">Meet Our Expert Vets</h2>
-      <div className="grid grid-cols-3 gap-6 mx-auto ">
+    <div className="mt-10 sm:mt-20 px-6 sm:px-13 lg:px-[100px]">
+      <h2 className="font-bold text-[20px] sm:text-3xl text-center mb-8">Meet Our Expert Vets</h2>
+      <div className="grid md:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-10 mx-auto ">
         {vets.map((vet) => (
-          <div key={vet.id} className="card bg-base-100 shadow-sm">
+          <div key={vet.id} className="card bg-base-100 shadow-sm transition duration-200 ease-in-out hover:scale-[1.05]">
             <figure>
               <img
-              className="h-58 w-full object-cover"
+              className="h-68 w-full object-cover"
                 src={vet.image}
                 alt={vet.name}
               />
             </figure>
-            <div className="card-body">
+            <div className="card-body space-y-2">
               <h2 className="card-title">{vet.name}</h2>
               <p>
                {vet.specialization}
