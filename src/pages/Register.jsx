@@ -17,6 +17,21 @@ const Register = () => {
     const photoUrl = e.target.photoUrl.value;
     // console.log(email, pass, name, photoUrl);
 
+    const uppercase = /[A-Z]/;
+    const lowercase = /[a-z]/;
+
+    if (pass.length < 6) {
+      return alert("less than 6 characters");
+    }
+
+    if (!uppercase.test(pass)) {
+      return alert("Need a Uppercase");
+    }
+
+    if (!lowercase.test(pass)) {
+      return alert("Need a Lowercase");
+    }
+
     registerWithEmailPassword(email, pass)
       .then((result) => {
         const user = result.user;
