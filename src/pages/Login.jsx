@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
@@ -9,20 +9,19 @@ const Login = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
+  const [email, setEmail] = useState("");
+  // console.log(location);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const pass = e.target.password.value;
 
-    
-
     signInWithEmailPassword(email, pass)
       .then((result) => {
         const user = result.user;
         setUser(user);
-        navigate(location.state);
+        navigate(location.state ? location.state: '/');
       })
       .catch((error) => {
         console.log(error);
@@ -34,11 +33,16 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        navigate(location.state);
+        navigate(location.state ? location.state: '/');
       })
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  const handleForget = () => {
+    navigate(`/forget/${email}`)
+    
   };
 
   return (
@@ -50,6 +54,7 @@ const Login = () => {
             <form onSubmit={handleSubmit} className="fieldset">
               <label className="label">Email</label>
               <input
+                onChange={(e) => setEmail(e.target.value)}
                 name="email"
                 type="email"
                 className="input"
@@ -63,7 +68,9 @@ const Login = () => {
                 placeholder="Password"
               />
               <div>
-                <a className="link link-hover">Forgot password?</a>
+                <button onClick={handleForget} className="link link-hover">
+                  Forgot password?
+                </button>
               </div>
               <div>
                 <span>Don't have an account? </span>
