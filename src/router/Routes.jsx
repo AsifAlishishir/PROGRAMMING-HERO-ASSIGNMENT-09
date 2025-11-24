@@ -8,11 +8,13 @@ import Profile from "../pages/Profile";
 import PrivateRoute from "./PrivateRoute";
 import ServiceDetails from "../pages/ServiceDetails";
 import ForgetPass from "../pages/ForgetPass";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -47,9 +49,9 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/forget/:email',
-        element: <ForgetPass/>
-      }
+        path: "/forget/:email",
+        element: <ForgetPass />,
+      },
     ],
   },
 ]);

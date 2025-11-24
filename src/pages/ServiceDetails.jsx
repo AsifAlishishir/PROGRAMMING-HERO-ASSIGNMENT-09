@@ -3,18 +3,26 @@ import { useParams } from "react-router";
 
 const ServiceDetails = () => {
   const [services, setServices] = useState([]);
-  const [serviceDetails, setServiceDetails] = useState(null);
+
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("/services.json")
       .then((res) => res.json())
-      .then((data) => setServices(data))
+      .then((data) => {
+        setServices(data);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
   }, []);
 
   const findResult = services.find((service) => service.serviceId == id);
   console.log(findResult);
+
+  if(loading){
+    return <p>Loading.......</p>
+  }
 
   return (
     <div className="my-20 flex flex-col items-center">
