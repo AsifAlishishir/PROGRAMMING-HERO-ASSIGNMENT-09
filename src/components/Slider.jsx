@@ -4,9 +4,9 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import i1 from "../assets/img-1683008098750.jpg";
-import i2 from "../assets/ginger-cat-in-sweater-free-image.jpg";
-import i3 from "../assets/istockphoto-122947916-612x612_imgupscaler.ai_General_4K.jpg";
+import i1 from "/assets/img-1683008098750.jpg";
+import i2 from "/assets/ginger-cat-in-sweater-free-image.jpg";
+import i3 from "/assets/istockphoto-122947916-612x612_imgupscaler.ai_General_4K.jpg";
 
 const Slider = () => {
   return (
