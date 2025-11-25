@@ -30,25 +30,55 @@ const vets = [
 const MeetOurVets = () => {
   return (
     <div className="mt-10 sm:mt-20 px-6 sm:px-9 xl:px-[100px]">
-      <h2 className="font-bold text-[20px] sm:text-3xl text-center mb-8 text-purple-500">Meet Our Expert Vets</h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-10 mt-12 mx-auto">
+      <div className="text-center mb-16">
+        <h2 className="text-[20px] sm:text-4xl font-extrabold text-gray-800 ">
+          Meet Our <span className="text-purple-600">Expert Vets</span>
+        </h2>
+        <p className="mt-3 text-xl text-gray-700 ">
+          Dedicated professionals committed to your pet's long-term health.
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12 mx-auto">
         {vets.map((vet) => (
-          <div key={vet.id} className="card bg-base-100 shadow-sm transition duration-200 ease-in-out hover:scale-[1.05] border-purple-400 hover:border-2 ">
-            <figure>
+          <div
+            key={vet.id}
+            className="card bg-white dark:bg-gray-100 shadow-xl rounded-2xl overflow-hidden 
+                   transition duration-300 ease-in-out hover:shadow-2xl hover:scale-[1.03]"
+          >
+            <figure className="h-64 sm:h-72 w-full relative">
               <img
-              className="h-68 w-full object-cover"
+                className="h-full w-full object-cover"
                 src={vet.image}
                 alt={vet.name}
               />
+
+              <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent"></div>
             </figure>
-            <div className="card-body space-y-2">
-              <h2 className="card-title">{vet.name}</h2>
-              <p>
-               {vet.specialization}
+
+            <div className="card-body p-6 sm:p-8 space-y-3">
+              <h2 className="text-2xl font-extrabold text-gray-900 dark:text-gray-900">
+                Dr. {vet.name}
+              </h2>
+
+              <p className="flex items-center text-lg text-purple-600 font-semibold">
+                <span className="mr-2 text-xl">🩺</span>
+                {vet.specialization}
               </p>
-              <p>{vet.experience}</p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Book Appointment</button>
+
+              <p className="flex items-center text-gray-600 dark:text-gray-700">
+                <span className="mr-2 text-xl">🎓</span>
+                {vet.experience}
+              </p>
+
+              <div className="card-actions justify-end pt-4">
+                <button
+                  className="btn btn-primary btn-md text-white font-semibold px-8 
+                         bg-linear-to-r from-[#632EE3] to-[#9F62F2] 
+                         border-none hover:opacity-90 shadow-lg"
+                >
+                  Book Appointment
+                </button>
               </div>
             </div>
           </div>

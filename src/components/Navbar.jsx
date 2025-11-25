@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
-import { signOut } from "firebase/auth";
-import auth from "../firebase/firebase.config";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const baseClasses = "font-medium text-[#000000]";
 
@@ -16,13 +14,13 @@ const Navbar = () => {
     return isActive ? `${baseClasses} ${activeClasses}` : baseClasses;
   };
 
-  const handleSignOut = () => {
-    signOut(auth)
-      .then((res) => {
-        console.log(res);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("User signed out successfully.");
       })
       .catch((err) => {
-        console.log(err);
+        console.error("Logout error:", err);
       });
   };
 
@@ -33,7 +31,7 @@ const Navbar = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost lg:hidden z-1"
+            className="btn btn-ghost lg:hidden z-10"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +51,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-42 md:w-52 p-2 shadow font-medium "
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow font-medium "
           >
             <li>
               <Link to={"/"}>Home</Link>
@@ -92,25 +90,46 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      {user ? (
-        <div className="navbar-end ">
-          <button
-            onClick={handleSignOut}
-            className="btn bg-linear-to-r from-[#632ee3] to-[#9f62f2] text-white"
-          >
-            LogOut
-          </button>
-        </div>
-      ) : (
-        <div className="navbar-end">
+
+      <div className="navbar-end space-x-3">
+        {user ? (
+          <>
+            <div
+              className="tooltip tooltip-bottom z-10"
+              data-tip={user.displayName || "User Profile"}
+            >
+              <Link
+                to="/profile"
+                className="btn btn-ghost btn-circle avatar transition duration-200 ease-in-out hover:scale-[1.05]"
+              >
+                <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img
+                    src={
+                      user.photoURL ||
+                      "https://i.ibb.co/L50W5P8/default-avatar.png"
+                    }
+                    alt={user.displayName || "User"}
+                  />
+                </div>
+              </Link>
+            </div>
+
+            <button
+              onClick={handleLogOut}
+              className="btn bg-linear-to-r from-[#632ee3] to-[#9f62f2] text-white transition duration-200 ease-in-out hover:scale-[1.05]"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
           <Link
             to={"/login"}
             className="btn bg-linear-to-r from-[#632ee3] to-[#9f62f2] text-white transition duration-200 ease-in-out hover:scale-[1.05] px-6 py-5"
           >
             Login
           </Link>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

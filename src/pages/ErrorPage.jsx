@@ -1,63 +1,76 @@
-import React from 'react';
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const ErrorPage = ({ statusCode = 404, title, message }) => {
-  // Determine title and message based on common status codes if not provided
-  const defaultTitle = statusCode === 404 ? 'Page Not Found' : 'Something Went Wrong';
-  const defaultMessage = statusCode === 404 
-    ? "We can't seem to find the page you're looking for. Please check the URL for typos."
-    : "An unexpected error occurred. We're working on fixing it. Please try again later.";
+  const defaultTitle =
+    statusCode === 404 ? "Oops! Lost in the Snow" : "Something Went Wrong";
+  const defaultMessage =
+    statusCode === 404
+      ? "It looks like your furry friend followed a trail that disappeared. We can't find this page."
+      : "An unexpected error occurred while fetching treats. Our team is fetching help!";
 
   const displayTitle = title || defaultTitle;
   const displayMessage = message || defaultMessage;
 
   return (
-    // Outer container: Full screen, light gray background, centered content
-    <div className="min-h-screen flex flex-col items-center justify-center bg-base-200 p-4 font-sans text-center">
-      
-      {/* Content Card: DaisyUI 'card' component */}
-      <div className="card w-full max-w-lg shadow-2xl bg-base-100 p-8 sm:p-12">
-        <div className="card-body p-0">
-        
-          {/* Status Code: Large, light text */}
-          <div className="text-[6rem] sm:text-[8rem] font-extrabold text-neutral-content/30 leading-none tracking-tighter mb-4">
-            {statusCode}
-          </div>
-          
-          {/* Title and Message */}
-          <h1 className="text-3xl sm:text-4xl font-bold text-neutral mb-3">
-            {displayTitle}
-          </h1>
-          <p className="text-lg text-neutral-content mb-8">
-            {displayMessage}
-          </p>
-          
-          {/* Actions: DaisyUI 'btn' components */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            
-            {/* Primary Button */}
-            <a 
-              href="/" 
-              className="btn btn-primary btn-lg" // DaisyUI classes: primary color, large size
+    <>
+      <Navbar />
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100  p-4 font-sans text-center">
+        <div className="mb-6">
+          <span
+            className="text-6xl sm:text-7xl"
+            role="img"
+            aria-label="Lost Pet Illustration"
+          >
+            🐕‍🦺❓
+          </span>
+        </div>
+
+        <div className="card w-full max-w-xl shadow-2xl bg-white dark:bg-gray-800 rounded-3xl p-8 sm:p-14 transform transition-all duration-300 hover:shadow-3xl">
+          <div className="card-body p-0">
+            <div
+              className="text-[6rem] sm:text-[9rem] font-extrabold 
+            bg-linear-to-r from-red-500 to-orange-400 bg-clip-text text-transparent 
+            leading-none tracking-tight mb-4 opacity-80"
             >
-              Go to Homepage
-            </a>
-            
-            {/* Secondary Button */}
-            <button 
-              onClick={() => window.history.back()} 
-              className="btn btn-outline btn-lg" // DaisyUI classes: outline style, large size
-            >
-              Go Back
-            </button>
+              {statusCode}
+            </div>
+
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-800 dark:text-white mb-4">
+              {displayTitle}
+            </h1>
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed">
+              {displayMessage}
+            </p>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a
+                href="/"
+                className="btn btn-lg text-white font-bold px-8 shadow-md 
+                         bg-linear-to-r from-[#632EE3] to-[#9F62F2] 
+                         border-none hover:opacity-90 transition duration-300"
+              >
+                Take Me Back Home
+              </a>
+
+              <button
+                onClick={() => window.history.back()}
+                className="btn btn-lg btn-outline btn-neutral border-2 px-8 
+                         hover:bg-neutral-focus bg-white hover:text-gray-500 transition duration-300"
+              >
+                Go Back (Last Treat)
+              </button>
+            </div>
           </div>
         </div>
+
+        <footer className="mt-8 text-sm text-gray-500 dark:text-gray-600">
+          Need assistance? Check your internet connection or contact support.
+        </footer>
       </div>
-      
-      {/* Optional Illustration/Footer element */}
-      <div className="mt-8 text-3xl opacity-50">
-        <span role="img" aria-label="Broken Link">🔗❌</span>
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

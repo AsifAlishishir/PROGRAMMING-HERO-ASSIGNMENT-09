@@ -35,7 +35,7 @@ const ForgetPass = () => {
               placeholder="Email"
             />
 
-            <button className="btn btn-neutral mt-4">Login</button>
+            <button className="btn btn-neutral mt-4">Reset Password</button>
           </form>
         </div>
       </div>
