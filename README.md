@@ -1,4 +1,4 @@
-````markdown
+
 # 🐾 PETPAWS: Pets in Care 🏡
 
 ## A Modern Pet Adoption and Care Platform
@@ -135,7 +135,7 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 
 <!-- end list -->
 
-```
+
 
 
 * `[YOUR_REPO_URL]`
@@ -144,4 +144,3 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 
 
 
-```
