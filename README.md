@@ -1,4 +1,3 @@
-
 # 🐾 PETPAWS: Pets in Care 🏡
 
 ## A Modern Pet Adoption and Care Platform
@@ -79,9 +78,9 @@ To start the local development server:
 ```bash
 npm run dev
 ```
+
 ````
 
-The application will typically be available at `http://localhost:5173/`.
 
 ### Building for Production
 
@@ -118,13 +117,7 @@ Contributions are what make the open-source community such an amazing place to l
 4.  Push to the Branch (`git push origin feature/AmazingFeature`).
 5.  Open a Pull Request.
 
----
 
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE.md` for more information.
-
----
 
 ## 📞 Contact
 
@@ -133,7 +126,7 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 - **Email:** [Your Email Address]
 - **Project Link:** [Your Repository Link]
 
-<!-- end list -->
+
 
 
 
@@ -144,3 +137,4 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 
 
 
+````
