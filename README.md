@@ -57,7 +57,7 @@ You need to have **Node.js** installed on your system.
 1.  **Clone the repository:**
 
     ```bash
-    git clone [YOUR_REPO_URL]
+    git clone [https://github.com/AsifAlishishir/PROGRAMMING-HERO-ASSIGNMENT-09]
     cd warmpaws_by_asif
     ```
 
@@ -122,9 +122,9 @@ Contributions are what make the open-source community such an amazing place to l
 ## 📞 Contact
 
 - **Project Name:** PETPAWS: Pets in Care
-- **Developer:** Asif
-- **Email:** [Your Email Address]
-- **Project Link:** [Your Repository Link]
+- **Developer:** Asif Ali Shishir
+- **Email:** [asifalishishir.info@gmail.com]
+- **Project Link:** [https://petpaws-by-shishir01.netlify.app/]
 
 
 
