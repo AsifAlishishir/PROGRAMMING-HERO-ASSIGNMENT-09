@@ -128,13 +128,3 @@ Contributions are what make the open-source community such an amazing place to l
 
 
 
-
-
-
-* `[YOUR_REPO_URL]`
-* `[Your Email Address]`
-* `[Your Repository Link]`
-
-
-
-````
