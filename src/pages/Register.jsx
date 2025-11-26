@@ -123,9 +123,9 @@ const Register = () => {
 
   return (
     <div className="hero bg-base-200 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="hero-content flex-col my-8 lg:my-0 lg:flex-row-reverse">
         <div className="card bg-base-100 w-full shadow-2xl">
-          <div className="card-body w-96">
+          <div className="card-body w-70 sm:w-96">
             <h2 className="text-center text-2xl font-semibold">Register</h2>
 
             {registerSuccess && (

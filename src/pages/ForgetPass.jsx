@@ -1,11 +1,11 @@
 import React from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
-import {useParams } from "react-router";
+import { useParams } from "react-router";
 import auth from "../firebase/firebase.config";
+import { toast } from "react-toastify";
 
 const ForgetPass = () => {
   const { email } = useParams();
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,8 +13,7 @@ const ForgetPass = () => {
 
     sendPasswordResetEmail(auth, formEmail)
       .then(() => {
-        alert("Mail Sent Successfully!!");
-        window.open("https://mail.google.com/mail/u/0/");
+        toast.success("Mail Sent successfully!!!");
       })
       .catch((error) => {
         console.log(error);

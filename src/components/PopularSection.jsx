@@ -1,16 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
+import LoadingSpinner from "./LoadingSpinner";
 
 const PopularSection = () => {
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     fetch("./services.json")
       .then((res) => res.json())
       .then((data) => setServices(data))
-      .catch((err) => console.log(err));
-  }, []);
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setTimeout(() => {
+          setLoading(false);
+        },2000);
+      });
+  }, [location]);
 
+  if (loading) {
+    return <LoadingSpinner />;
+  }
   // console.log(services);
   return (
     <div className="mt-10 sm:mt-20 px-6 sm:px-9 xl:px-[100px]">

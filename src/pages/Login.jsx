@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { signInWithEmailPassword, setUser, handlgGoogleSignIn } =
@@ -90,7 +91,7 @@ const Login = () => {
 
   const handleForget = () => {
     if (!email) {
-      alert("Enter a mail First!!!!!!");
+      toast.error("Enter a Mail First!!!");
       return;
     }
     navigate(`/forget/${email}`);
@@ -100,7 +101,7 @@ const Login = () => {
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
-          <div className="card-body w-96">
+          <div className="card-body w-70 sm:w-96">
             <h2 className="text-center text-3xl font-semibold">Login</h2>
 
             {loginSuccess && (

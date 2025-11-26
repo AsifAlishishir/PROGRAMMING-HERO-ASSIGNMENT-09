@@ -1,20 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router";
-import { AuthContext } from "../Provider/AuthProvider";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router";
 import LoadingSpinner from "../components/LoadingSpinner";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 
 const Services = () => {
-  const { loading } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true);
   const [services, setServices] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     fetch("./services.json")
       .then((res) => res.json())
       .then((data) => setServices(data))
-      .catch((err) => console.log(err));
-  }, []);
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setTimeout(() => {
+          setLoading(false);
+        }, 1500);
+      });
+  }, [location]);
 
   if (loading) return <LoadingSpinner />;
 

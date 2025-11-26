@@ -5,6 +5,7 @@ import auth from "../firebase/firebase.config";
 import { toast } from "react-toastify";
 
 const Profile = () => {
+  
   const { user, setUser } = useContext(AuthContext);
   //   console.log(user);
 

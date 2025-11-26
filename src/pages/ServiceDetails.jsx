@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import { toast } from "react-toastify";
 import LoadingSpinner from "../components/LoadingSpinner";
 
@@ -17,6 +17,8 @@ const ServiceDetails = () => {
   const [services, setServices] = useState([]);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
+  const [loadingbb, setLoadingbb] = useState(true);
+  const location = useLocation();
 
   // State for form inputs
   const [name, setName] = useState("");
@@ -35,12 +37,17 @@ const ServiceDetails = () => {
         setServices(data);
         setLoading(false);
       })
-      .catch((err) => console.log(err));
-  }, []);
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setTimeout(() => {
+          setLoadingbb(false);
+        }, 1500);
+      });
+  }, [location]);
 
   const findResult = services.find((service) => service.serviceId == id);
 
-  if (loading) return <LoadingSpinner />;
+  if (loadingbb) return <LoadingSpinner />;
 
   if (!findResult) {
     return (

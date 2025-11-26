@@ -60,13 +60,13 @@ const HydrationNutritionCheckup = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-gray-50 dark:bg-gray-800 p-6 sm:p-8 rounded-xl shadow-xl flex flex-col md:flex-row items-center border-l-4 border-pink-600 justify-center">
+        <div className="mt-16 bg-purple-300 p-6 sm:p-8 rounded-xl shadow-xl flex flex-col md:flex-row items-center  justify-center">
           <div className="md:w-3/4">
-            <h3 className="text-2xl font-bold mb-3 text-pink-600 dark:text-pink-400 flex items-center ">
+            <h3 className="text-2xl font-bold mb-3 text-gray-800 text-center  ">
               <span className="mr-3">🥣</span> Pro Tip: Boost Hydration with Wet
               Food
             </h3>
-            <p className="text-gray-700 dark:text-gray-300">
+            <p className="text-gray-600 text-center">
               If your pet resists drinking cold water, try mixing a small amount
               of low-sodium broth or warm water into their dry kibble, or switch
               to a wet food supplement. This is a passive way to get extra
